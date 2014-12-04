@@ -1,0 +1,24 @@
+# Regex Rules pseudo-BNF
+# regex_rule = <regex_rule_start_sym><regex_rule_name> <regex_rule_definition_sym> <regex_rule_body>
+#
+# regex_rule_start_sym = '@'
+# regex_rule_name = [a-zA-Z0-9_]+
+# regex_rule_definition_sym = '='
+# regex_rule_body = <meta_sym>? <quote> <python_regex> <quote>
+# meta_sym = 's'
+# quote = '"'
+# python_regex = (Consult the python language reference for this).
+#
+# meta_sym definitions :
+# s = ignore whitespace in python_regex body. this allows for (somewhat) legible
+#     regex definitions, but also requires that any whitespace in the intended 
+#     to be present in the regex needs to be escaped or reference by a special 
+#     char (e.g. \n, \t, \s)  
+
+
+# An adapted version of the RFC 2822 email address regex found here:
+# (http://www.regular-expressions.info/email.html) 
+@email = s"[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*
+        @(?:(?:[\w-]*\w)?\.)+
+        (?:com|org|net|edu|gov|mil|biz|info|mobi|name|aero|asia|jobs|museum|[a-z]{2})"
+
