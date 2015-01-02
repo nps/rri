@@ -81,7 +81,6 @@ class TheRules:
 
 # Essentally an abstract state class we derive meaningful states from
 class InterpretterState:
-
     def __init__(self, intprtr):
         self._intprtr = intprtr
 
@@ -93,7 +92,6 @@ class InterpretterState:
 
 
 class InRuleState(InterpretterState):
-
     def __init__(self, intprtr, rule):
         InterpretterState.__init__(self, intprtr)
         self._rule = rule
